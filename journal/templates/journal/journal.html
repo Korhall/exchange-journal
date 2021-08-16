@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Журнал сделок</title>
+</head>
+
+<body>
+	<h1>Журнал биржевых сделок</h1>
+	
+	
+	<div>
+		<table width="auto" border="1">
+  <tbody>
+	   <tr>
+      <td><b>Дата</td>
+      <td>Время</td>
+      <td>Тип ордера</td>
+      <td>Цена открытия</td>
+      <td>Цена закрытия</td>
+      <td>Прибыль</td>
+	  <td>Кол-во лотов</td>
+	  <td>Причина входа</td>
+	  <td>Причина выхода</td>
+	  <td>Стратегия</td>
+    </tr>
+  </tbody>
+		{% for scripts in scripts %}	
+    <tr>		
+      <td>{{scripts.fieldDate}}</td>
+      <td>{{scripts.fieldTime}}</td>
+      <td>{{scripts.fieldOrderType}}</td>
+      <td>{{scripts.fieldOpenPrice}}</td>
+      <td>{{scripts.fieldClosePrice}}</td>
+      <td>{{scripts.fieldProfit}}</td>
+	  <td>{{scripts.fieldLot}}</td>
+	  <td>{{scripts.fieldEnterReason}}</td>
+	  <td>{{scripts.fieldCloseReason}}</td>
+	  <td>{{scripts.fieldStrategy}}</td>
+		
+    </tr>
+			{% endfor %}
+</table>
+	
+	</div>
+	
+</body>
+</html>

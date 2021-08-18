@@ -1,13 +1,21 @@
 from django.contrib import admin
 from .models import Notebook, OrderType, Ticker, EnterReason
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 @admin.register(Notebook)
-class NotebookAdmin(admin.ModelAdmin):
+class NotebookAdmin(ImportExportModelAdmin):
     list_display = ('fieldDate', 'fieldTime', 'fieldOrderType', 'fieldOrderType', 'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy')
     list_display_links = ('fieldDate', 'fieldTime', 'fieldOrderType', 'fieldEnterReason', 'fieldCloseReason')
     
-
+class NotebookResource(resources.ModelResource):
+    
+    class Meta:
+        model = Notebook
+        fields = ('fieldDate', 'fieldTime', 'fieldOrderType', 'fieldOrderType', 'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy')
+        skip_unchanged = True
+        report_skiped = False
 
 @admin.register(OrderType)
 class OrderTypeAdmin(admin.ModelAdmin):

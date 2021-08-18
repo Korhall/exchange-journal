@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Журнал сделок</title>
+</head>
+
+<body>
+	<h1>Журнал биржевых сделок</h1>
+	
+	
+	<div>
+		<table width="auto" border="1">
+  <tbody>
+	   <tr>
+      <td><b>Название компании</td>
+      <td>Отрасль</td>
+      <td>Сектор</td>      
+    </tr>
+  </tbody>
+		{% for scripts in scripts %}	
+    <tr>		
+      <td>{{scripts.fieldCompanyName}}</td>
+      <td>{{scripts.fieldSector}}</td>
+      <td>{{scripts.fieldBranch}}</td>      
+		
+    </tr>
+			{% endfor %}
+</table>
+	
+	</div>
+	
+</body>
+</html>

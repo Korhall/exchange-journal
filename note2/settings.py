@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'journal',
+    'moex',
+    'segment',
+    'import_export',
 ]
 
 MIDDLEWARE = [

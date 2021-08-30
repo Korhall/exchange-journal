@@ -5,13 +5,14 @@ import segment.models
 
 class Notebook(models.Model):
     fieldOpenDate = models.DateField(auto_now=False, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата открытия позиции')
-    fieldCloseDate = models.DateField(auto_now=False, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата закрытия позиции')
+    fieldCloseDate = models.DateField(auto_now=True, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата закрытия позиции')
     fieldOpenTime = models.TimeField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Время открытия позиции')    
     fieldCloseTime = models.TimeField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Время закрытия позиции')    
     fieldOrderType = models.ForeignKey('OrderType', on_delete=models.PROTECT, verbose_name='Ордер')    
     fieldOpenPrice = models.FloatField(null=True, blank=False, max_length=10, verbose_name='Цена открытия')
     fieldClosePrice = models.FloatField(null=True, blank=False, max_length=10, verbose_name='Цена закрытия')
     fieldProfit = models.FloatField(null=True, blank=False, max_length=10, verbose_name='Прибыль')
+    fieldComission = models.FloatField(null=True, blank=False, max_length=10, verbose_name='Прибыль')
     fieldTicker = models.ForeignKey('Ticker', on_delete=models.PROTECT, verbose_name='Тикер') 
     fieldAmmount = models.IntegerField(max_length=7, blank=True, null=True, verbose_name='Кол-во')
     fieldStopLoss = models.FloatField(null=True, blank=True, max_length=10, verbose_name='Стоп')

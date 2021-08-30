@@ -17,10 +17,18 @@ class BranchAdmin(ImportExportModelAdmin):
     #resource_class = BranchResource
     
 @admin.register(EnterpriseSegment)
-class EnterpriseSegmentAdmin(admin.ModelAdmin):
-    list_display = ('fieldSector','fieldBranch','fieldCompanyName',)
-    list_display_links = ('fieldBranch',)
+class EnterpriseSegmentAdmin(ImportExportModelAdmin):
+    list_display = ('fieldCompanyName', 'fieldTicker',  'fieldSector','fieldBranch',)
+    list_display_links = ('fieldTicker',)
     
+
+class EnterpriseSegmentResource(resources.ModelResource):
+    
+    class Meta:
+        model = EnterpriseSegment
+        fields = ('fieldCompanyName', 'fieldTicker',)
+        skip_unchanged = True
+        report_skiped = False
 
 class BranchResource(resources.ModelResource):
     

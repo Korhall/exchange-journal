@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import EnterpriseSegment
+from .models import EnterpriseSegment, Sector, Branch
 
 # Create your views here.
 def mainindex(request):

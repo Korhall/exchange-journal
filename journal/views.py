@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Notebook, Ticker, OrderType
+from segment.models import Branch
 import sys
 from moex.views import Config
 from moex.views import MicexAuth

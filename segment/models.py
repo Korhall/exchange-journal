@@ -1,8 +1,10 @@
 from django.db import models
+import journal.models
+
 
 # Create your models here.
 class Sector(models.Model):
-    fieldSectorName = models.CharField(max_length=100, blank=False, null=False, verbose_name='Сектор', default='Нет')
+    fieldSectorName = models.CharField(max_length=100, blank=False, null=True, verbose_name='Сектор', default='Нет')
     
 
     
@@ -16,7 +18,7 @@ class Sector(models.Model):
 
 
 class Branch(models.Model):
-    fieldBranchName = models.CharField(max_length=100, blank=False, null=False, verbose_name='Отрасль', default='Нет')
+    fieldBranchName = models.CharField(max_length=100, blank=False, null=True, verbose_name='Отрасль', default='Нет')
     
 
     
@@ -31,10 +33,12 @@ class Branch(models.Model):
 class EnterpriseSegment(models.Model):    
     fieldSector = models.ForeignKey('Sector', on_delete=models.CASCADE, verbose_name='Сектор')
     fieldBranch = models.ForeignKey('Branch', on_delete=models.CASCADE, verbose_name='Отрасль')    
-    fieldCompanyName = models.CharField(max_length=20, blank=True, null=True, verbose_name='Выбранная стратегия')
+    fieldCompanyName = models.CharField(max_length=20, blank=True, null=True, verbose_name='Название компании')
+    fieldTicker = models.CharField(max_length=20, blank=True, null=True, verbose_name='Торговое имя')
     
-    
+
     class Meta:
         verbose_name_plural = 'Сементация компаний'
         verbose_name = 'Сегментация компаний'
-        ordering = ['-fieldCompanyName']
+        ordering = ['-fieldTicker']
+

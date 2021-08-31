@@ -6,11 +6,11 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 @admin.register(Notebook)
 class NotebookAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'fieldOpenDate', 'fieldCloseDate', 'fieldOpenTime', 'fieldCloseTime', 'fieldOrderType',  'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldComission', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy', 'fieldMonthTrends', 'fieldWeekTrends', 'fieldDayTrends', 'field4HourTrends', 'field1HourTrends', 'fieldBranch', 'fieldSector')
+    list_display = ('id',  'fieldDate', 'fieldCloseDate', 'fieldTime', 'fieldCloseTime', 'fieldOrderType',  'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldComission', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy', 'fieldMonthTrends', 'fieldWeekTrends', 'fieldDayTrends', 'field4HourTrends', 'field1HourTrends', 'fieldBranch', 'fieldSector')
     list_display_links = ('id',)
     
     
-    list_editable = ['fieldOpenDate', 'fieldCloseDate', 'fieldOpenTime', 'fieldCloseTime',  'fieldOrderType', 'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldComission', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy', 'fieldBranch', 'fieldSector', 'fieldMonthTrends', 'fieldWeekTrends', 'fieldDayTrends', 'field4HourTrends', 'field1HourTrends',]
+    list_editable = [ 'fieldDate', 'fieldCloseDate', 'fieldTime', 'fieldCloseTime',  'fieldOrderType', 'fieldOpenPrice', 'fieldClosePrice', 'fieldProfit', 'fieldComission', 'fieldTicker', 'fieldAmmount', 'fieldStopLoss', 'fieldTakeProfit', 'fieldLot',  'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy', 'fieldBranch', 'fieldSector', 'fieldMonthTrends', 'fieldWeekTrends', 'fieldDayTrends', 'field4HourTrends', 'field1HourTrends',]
     list_filter = (
         'fieldOrderType', 'fieldEnterReason', 'fieldCloseReason', 'fieldStrategy',  'fieldMonthTrends', 'fieldWeekTrends', 'fieldDayTrends', 'field4HourTrends', 'field1HourTrends', 'fieldBranch', 'fieldSector'
     )

@@ -1,12 +1,13 @@
 from django.db import models
 import segment.models
+import datetime 
 # Create your models here.
 
 
 class Notebook(models.Model):
-    fieldOpenDate = models.DateField(auto_now=False, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата открытия позиции')
-    fieldCloseDate = models.DateField(auto_now=True, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата закрытия позиции')
-    fieldOpenTime = models.TimeField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Время открытия позиции')    
+    fieldDate = models.DateField(auto_now=False, auto_now_add=False, db_index=True, blank=False, verbose_name='Дата открытия позиции')
+    fieldCloseDate = models.DateField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Дата закрытия позиции', default=datetime.date.today)
+    fieldTime = models.TimeField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Время открытия позиции')    
     fieldCloseTime = models.TimeField(auto_now=False, auto_now_add=False, blank=False, verbose_name='Время закрытия позиции')    
     fieldOrderType = models.ForeignKey('OrderType', on_delete=models.PROTECT, verbose_name='Ордер')    
     fieldOpenPrice = models.FloatField(null=True, blank=False, max_length=10, verbose_name='Цена открытия')
@@ -36,7 +37,7 @@ class Notebook(models.Model):
     class Meta:
         verbose_name_plural = 'Сделка'
         verbose_name = 'Сделки'
-        ordering = ['-fieldOpenDate']
+        ordering = ['-fieldDate']
 
 
 class CloseReason(models.Model):
